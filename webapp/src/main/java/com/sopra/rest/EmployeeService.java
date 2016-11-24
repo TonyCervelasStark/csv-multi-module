@@ -3,18 +3,19 @@ package com.sopra.rest;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.sopra.modele.Employee;
 
-public class FService {
+@Stateless
+public class EmployeeService {
 	
 	@PersistenceContext
 	EntityManager em;
 	
 	public List<Employee> findAll() {
-		// This is not SQL it is JPQL : Java Persistence Query Language
 		return em.createQuery("SELECT e FROM Employee e", Employee.class).getResultList();
 	}
 	

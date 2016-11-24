@@ -2,6 +2,7 @@ package com.sopra.rest;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -16,10 +17,10 @@ import javax.ws.rs.core.MediaType;
 import com.sopra.modele.Employee;
 
 
-@Path("employee")
-public class FormationWs {
-	
-	FService service;
+@Path( "employee" )
+public class EmployeeWs {
+	@EJB
+	EmployeeService service;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

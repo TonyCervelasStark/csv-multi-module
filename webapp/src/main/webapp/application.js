@@ -13,7 +13,7 @@ RestService.prototype = {
 		
 		createOrUpdate(employee, callback) {
 			$.ajax(this.baseUrl, {
-				method: employee.id<=0 ? 'put' : 'post',
+				method: employee.id === 0 ? 'put' : 'post',
 				dataType: 'json',
 				contentType: 'application/json',
 				data: JSON.stringify(employee),
@@ -75,20 +75,20 @@ function showEditForm(employee) {
 }
 
 $(function() {
-	let service = new RestService('formation/employee')
+	let service = new RestService('rs/employee')
 	
 	// Attention ce n'est pas forcément recommandé d'écrire de façon si condensée !
 	// Avez-vous des difficultés à lire cette ligne de code ?
-	service.getAll( (employees) => $('table.Employee').append( $(employees.map(getTableRowForEmployee).join('')) ) )
+	service.getAll( (employees) => $('table.employees').append( $(employees.map(getTableRowForEmployee).join('')) ) )
 	
-	$("table.Employee").on("click", ".deleteButton", function() {
+	$("table.employees").on("click", ".deleteButton", function() {
 		let tableRow = $(this).closest("tr[data-id]")
 		let id = tableRow.attr("data-id")
 		
 		service.delete(id, () => tableRow.remove())
 	})
 	
-	$("table.Employee").on("click", ".editButton", function() {
+	$("table.employees").on("click", ".editButton", function() {
 		let tableRow = $(this).closest("tr[data-id]")
 		let id = tableRow.attr("data-id")
 		
@@ -100,7 +100,7 @@ $(function() {
 	$('#okButton').click(function() {
 		employee = editedEmployee
 		if( !employee )
-			employee = { id: -1 }
+			employee = { id: null }
 		
 		employee.name = $('#name').val()
 		employee.firstname = $('#firstname').val()
@@ -110,11 +110,11 @@ $(function() {
 		service.createOrUpdate(employee, function(employee) {
 			let rowHtml = getTableRowForEmployee(employee)
 			
-			let employeeRow = $(`table.Employee tr[data-id=${employee.id}]`)
+			let employeeRow = $(`table.employee tr[data-id=${employee.id}]`)
 			if( employeeRow.length )
 				employeeRow.replaceWith(rowHtml)
 			else
-				$('table.Employee').append( $(rowHtml) )
+				$('table.employees').append( $(rowHtml) )
 		})
 		
 		showTable()
