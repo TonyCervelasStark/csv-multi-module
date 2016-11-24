@@ -1,4 +1,4 @@
-package com.sopra;
+package com.sopra.test;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

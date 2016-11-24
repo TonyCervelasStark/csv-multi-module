@@ -7,7 +7,6 @@ import com.sopra.modele.Employee;
 import com.sopra.modele.Training;
 import com.sopra.modele.TrainingDemand;
 
-
 public class FormationService {
 
 	public Employee avoidDoubleAndEmptyEmployee(Employee employee) {

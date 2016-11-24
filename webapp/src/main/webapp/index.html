@@ -1,1 +1,68 @@
-LJKFHLKFJEHLKFJH
+<!DOCTYPE>
+<html>
+<title>Formations CRUD</title>
+<head>
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+<link href="application.css" rel="stylesheet">
+
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="application.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+
+<body>
+<div id="crudFlipContainer" class="flip-container">
+		<div class="flipper">
+			<div class="front">
+				<table class="employee">
+					<thead>
+						<th>Name</th>
+						<th>Firstname</th>
+						<th>Agency</th>
+						<th></th>
+					</thead>
+				</table>
+				<a id="createButton" class="waves-effect waves-light btn">Add</a>
+			</div>
+			<div class="back">
+				<div class="row">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s12">
+								<input placeholder="" id="name" type="text" class="validate">
+								<label for="name">Name</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input placeholder="" id="firstname" type="text" class="validate">
+								<label for="firstname">Firstname</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<input placeholder="" id="agency" type="text" class="validate">
+								<label for="agency">Agency</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12">
+								<a id="okButton" class="waves-effect waves-light btn">OK</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
