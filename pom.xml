@@ -20,5 +20,6 @@
 	<modules>
 		<module>modele</module>
 		<module>importation</module>
+		<module>webapp</module>
 	</modules>
 </project>
